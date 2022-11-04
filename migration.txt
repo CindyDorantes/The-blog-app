@@ -2,8 +2,14 @@ rails generate migration CreateUsers name:string photo:text bio:text posts_count
 rails generate migration CreatePosts title:string text:text comments_counter:integer likes_counter:integer
 rails generate migration CreateComments text:text
 rails generate migration CreateLikes
+
 rails generate migration AddUserRefToPost user:references user:index
 rails generate migration AddUserRefToComment user:references user:index
 rails generate migration AddPostRefToComment post:references post:index
 rails generate migration AddUserRefToLikes user:references user:index
 rails generate migration AddPostRefToLikes post:references post:index
+
+rails generate model User name:string photo:text bio:text posts_counter:integer
+rails generate model Post title:string text:text comments_counter:integer likes_counter:integer
+rails generate model Comment text:text
+rails generate model Like
