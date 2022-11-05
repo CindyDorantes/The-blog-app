@@ -17,6 +17,14 @@ bundle install
 rails server
 ```
 
+- To run the test available 
+```
+rspec spec/models/user_spec.rb
+rspec spec/models/post_spec.rb
+rspec spec/models/comment_spec.rb
+rspec spec/models/like_spec.rb
+```
+
 ## Authors
 
 👤 **Cindy Dorantes**

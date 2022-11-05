@@ -17,7 +17,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'title should be no longer than 250 chars' do
-      long_title = 'This is supposed to be a really really long title that will test the validation for the post model that titles do not have more than two hundred and fifty characters but I see that I keep writing and have not reached the number of characters I need for this test'
+      long_title = 'long ' * 55
       subject.title = long_title
       expect(subject).to_not be_valid
     end
