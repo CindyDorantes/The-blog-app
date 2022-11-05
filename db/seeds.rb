@@ -19,3 +19,8 @@ Comment.create(post: first_post, author: second_user, text: 'I dont agree')
 Comment.create(post: first_post, author: second_user, text: 'I would like to know more')
 Comment.create(post: first_post, author: second_user, text: 'Thanks for sharing')
 Comment.create(post: first_post, author: second_user, text: 'Is that all?')
+
+Like.create(post: first_post, author: second_user)
+Like.create(post: second_post, author: second_user)
+Like.create(post: third_post, author: second_user)
+Like.create(post: fourth_post, author: second_user)
