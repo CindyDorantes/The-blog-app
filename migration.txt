@@ -3,13 +3,17 @@ rails generate migration CreatePosts title:string text:text comments_counter:int
 rails generate migration CreateComments text:text
 rails generate migration CreateLikes
 
-rails generate migration AddUserRefToPost user:references user:index
-rails generate migration AddUserRefToComment user:references user:index
-rails generate migration AddPostRefToComment post:references post:index
-rails generate migration AddUserRefToLikes user:references user:index
-rails generate migration AddPostRefToLikes post:references post:index
+rails generate migration AddUserRefToPost user:references
+rails generate migration AddUserRefToComment user:references
+rails generate migration AddPostRefToComment post:references
+rails generate migration AddUserRefToLikes user:references
+rails generate migration AddPostRefToLikes post:references
 
 rails generate model User name:string photo:text bio:text posts_counter:integer
 rails generate model Post title:string text:text comments_counter:integer likes_counter:integer
 rails generate model Comment text:text
 rails generate model Like
+
+second_post = Post.create(author: first_user, title: 'Hello again', text: 'This is my second post')
+
+Like.create(post: first_post, author: second_user)
