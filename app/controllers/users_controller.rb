@@ -2,6 +2,6 @@ class UsersController < ApplicationController
   def index; end
 
   def show
-    puts params
+    params[:user_id]
   end
 end
