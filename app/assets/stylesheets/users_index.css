@@ -27,10 +27,14 @@ li {
   padding: 0.5rem;
   border: 1px solid black;
   margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img_div img {
-  width: fit-content;
+  max-height: 150px;
+  max-width: 150px;
 }
 
 .info_div {

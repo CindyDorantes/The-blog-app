@@ -1,0 +1,17 @@
+.single-post {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.single-post a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-comments-preview {
+  width: 93%;
+  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}

@@ -25,7 +25,7 @@
 
       <% @user.last_three_post.each do |post| %>
         <div class="user-post-preview">
-          <h3>Post <%= post.id %></h3>
+          <h3><%= post.title%></h3>
           <p><%= post.text %></p>
           <p class="post-data">
             <span>Comments: <%= post.comments_counter %></span>
