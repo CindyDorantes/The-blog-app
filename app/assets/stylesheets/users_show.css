@@ -1,0 +1,35 @@
+.user-header {
+  display: flex;
+}
+
+.user-bio {
+  width: 93%;
+  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.user-post-preview {
+  width: 93%;
+  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.post-data {
+  width: 100%;
+  text-align: right;
+  color: gray;
+  font-size: small;
+}
+
+.div-see-all {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-see-all {
+  box-shadow: 10px 10px grey;
+  width: 150px;
+  height: 2rem;
+}
