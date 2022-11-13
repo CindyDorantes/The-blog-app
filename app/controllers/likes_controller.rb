@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     if like.save
       redirect_to user_post_path(@user.id, @post.id)
     else
-      render :new, locals: { like: like}
+      render :new, locals: { like: like }
     end
   end
 end
