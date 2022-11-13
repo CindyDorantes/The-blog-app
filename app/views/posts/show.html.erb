@@ -10,6 +10,7 @@
               <span>Likes: <%= @post.likes_counter %></span>
             </p>
             <p><%= @post.text %></p>
+            <%= render "likes/create" %>
           </div>
           <%# <% if @post.comments.size == 0 do %>
             <%# <p>This post has no comments yet</p> %>
