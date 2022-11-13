@@ -4,7 +4,7 @@
     <div class="single-post">
         <%= link_to user_post_path(@user, @post) do%>
           <div class="user-post-preview">
-            <h3>"<%= @post.title%>" by <%= @user.name %></h3>
+            <h2>"<%= @post.title%>" by <%= @user.name %></h2>
             <p class="post-data">
               <span>Comments: <%= @post.comments_counter %></span>
               <span>Likes: <%= @post.likes_counter %></span>
@@ -15,6 +15,8 @@
             <%# <p>This post has no comments yet</p> %>
           <%# <%end%> 
           <div class="post-comments-preview">
+            <h3>Comments</h3>
+            <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new" %>
             <% @post.comments.each do |comment| %>
               <p><%=comment.author.name %>: <%=comment.text %></p>
             <% end %>
