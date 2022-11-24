@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
-  def current_user
-    User.first
+  before_action :authenticate_user!
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end
