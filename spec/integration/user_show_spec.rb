@@ -46,7 +46,7 @@ RSpec.describe 'user#show', type: :feature do
     end
 
     # When I click a user's post, it redirects me to that post's show page.
-    it 'redirects to user show page when cliked' do
+    it 'redirects to post show page when cliked' do
       visit "/users/#{@first_user.id}"
       click_on(@first_post.title)
       expect(page).to have_current_path(user_post_path(@first_user.id, @first_post.id))
@@ -55,8 +55,8 @@ RSpec.describe 'user#show', type: :feature do
     # When I click to see all posts, it redirects me to the user's post's index page.
     it 'redirects to user posts index when cliked' do
       visit "/users/#{@first_user.id}"
-      click_button('See all posts')
-      expect(page).to have_current_path("/users/#{@first_user.id}")
+      click_link('See all posts')
+      expect(page).to have_current_path("/users/#{@first_user.id}/posts")
     end
   end
 end
