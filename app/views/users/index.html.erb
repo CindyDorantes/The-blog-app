@@ -5,7 +5,9 @@
     <% @users.each do |user| %>
       <%= link_to user_path(user.id) do %>
         <li>
-          <div class="img_div"><%= image_tag user.photo %></div>
+          <% user.photo do %>
+            <div class="img_div"><%= image_tag user.photo %></div>
+          <% end %>
           <div class="info_div">
             <h2><%= user.name %></h2>
             <span>Number of posts: <%= user.posts_counter %></span>
