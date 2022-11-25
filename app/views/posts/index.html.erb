@@ -14,21 +14,26 @@
 
     <%@posts.each do |post|%>
       <div class="single-post">
-        <%= link_to user_post_path(@user, post) do%>
-          <div class="user-post-preview">
+        <div class="user-post-preview">
+          <%= link_to user_post_path(@user, post) do%>
             <h3><%= post.title%></h3>
-            <p><%= post.text %></p>
-            <p class="post-data">
-              <span>Comments: <%= post.comments_counter %></span>
-              <span>Likes: <%= post.likes_counter %></span>
-            </p>
-          </div>
-          <div class="post-comments-preview">
-            <% post.last_five_comments.each do |comment| %>
-              <p><%=comment.author.name %>: <%=comment.text %></p>
+          <%end%>
+          <p><%= post.text %></p>
+          <p class="post-data">
+            <span>Comments: <%= post.comments_counter %></span>
+            <span>Likes: <%= post.likes_counter %></span>
+          </p>
+          <% if can? :destroy, post %>
+            <%= form_with model: post, url: user_post_path(@user, post), method: :delete do |form| %>
+              <%= form.submit "Delete Post", class: "see" %>
             <% end %>
-          </div>
-        <%end%>
+          <% end %>
+        </div>
+        <div class="post-comments-preview">
+          <% post.last_five_comments.each do |comment| %>
+            <p><%=comment.author.name %>: <%=comment.text %></p>
+          <% end %>
+        </div>
       </div>
     <%end%>
 

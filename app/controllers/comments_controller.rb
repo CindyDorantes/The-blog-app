@@ -21,4 +21,5 @@ class CommentsController < ApplicationController
       render :new, locals: { comment: comment }
     end
   end
+
 end
