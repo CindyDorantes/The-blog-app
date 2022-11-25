@@ -1,5 +1,5 @@
 <%# users#show %>
-main>
+<main>
   <section>
       <div class="user-header">
         <div class="img_div">
@@ -26,7 +26,7 @@ main>
         </p>
       </div>
 
-      <% @user.last_three_post.each do |post| %>
+      <% @posts.each do |post| %>
       <div class="user-post-preview">
         <%= link_to user_post_path(@user, post) do%>
           <h3><%= post.title%></h3>
@@ -43,6 +43,5 @@ main>
           <button type="button" class="btn-see-all">See all posts</button>
         </div>
       <% end %>
-
   </section>
 </main>

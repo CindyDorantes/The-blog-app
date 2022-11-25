@@ -2,27 +2,36 @@
 <main>
   <section>
     <div class="single-post">
-        <%= link_to user_post_path(@user, @post) do%>
-          <div class="user-post-preview">
-            <h2>"<%= @post.title%>" by <%= @user.name %></h2>
-            <p class="post-data">
-              <span>Comments: <%= @post.comments_counter %></span>
-              <span>Likes: <%= @post.likes_counter %></span>
-            </p>
-            <p><%= @post.text %></p>
-            <%= render "likes/create" %>
-          </div>
-          <%# <% if @post.comments.size == 0 do %>
-            <%# <p>This post has no comments yet</p> %>
-          <%# <%end%> 
-          <div class="post-comments-preview">
-            <h3>Comments</h3>
-            <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new" %>
-            <% @post.comments.each do |comment| %>
-              <p><%=comment.author.name %>: <%=comment.text %></p>
+      <div class="user-post-preview">
+          <h2>"<%= @post.title%>" by <%= @user.name %></h2>
+          <p class="post-data">
+            <span>Comments: <%= @post.comments_counter %></span>
+            <span>Likes: <%= @post.likes_counter %></span>
+          </p>
+          <p><%= @post.text %></p>
+          <%= render "likes/create" %>
+          <% if can? :destroy, Post %>
+            <%= form_with model: Post, url: user_post_path(@user, @post), method: :delete do |form| %>
+              <%= form.submit "Delete Post", class: "see" %>
             <% end %>
-          </div>
-        <%end%>
+          <% end %>
+        </div>
+        <%# <% if @post.comments.size == 0 do %>
+          <%# <p>This post has no comments yet</p> %>
+        <%# <%end%> 
+        <div class="post-comments-preview">
+          <h3>Comments</h3>
+          <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new" %>
+          <% @post.comments.each do |comment| %>
+            <p><%=comment.author.name %>: <%=comment.text %></p>
+            <% if can? :destroy, comment %>
+              <%= form_with model: comment, url: user_post_comment_path(@user, @post, comment), method: :delete do |form| %>
+                <%= form.submit "Delete comment", class: "see" %>
+              <% end %>
+            <% end %>
+
+          <% end %>
+        </div>
       </div>
   </section>
 </main>
