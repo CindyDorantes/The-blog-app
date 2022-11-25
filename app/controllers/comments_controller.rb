@@ -8,6 +8,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_back_or_to user_posts_path(current_user), notice: 'Deleted!' }
+    end
+  end
+
+
   def create
     # new object from params
     user = User.find(params[:user_id])
@@ -21,5 +30,4 @@ class CommentsController < ApplicationController
       render :new, locals: { comment: comment }
     end
   end
-
 end
