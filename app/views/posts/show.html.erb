@@ -2,27 +2,25 @@
 <main>
   <section>
     <div class="single-post">
-        <%= link_to user_post_path(@user, @post) do%>
-          <div class="user-post-preview">
-            <h2>"<%= @post.title%>" by <%= @user.name %></h2>
-            <p class="post-data">
-              <span>Comments: <%= @post.comments_counter %></span>
-              <span>Likes: <%= @post.likes_counter %></span>
-            </p>
-            <p><%= @post.text %></p>
-            <%= render "likes/create" %>
-          </div>
-          <%# <% if @post.comments.size == 0 do %>
-            <%# <p>This post has no comments yet</p> %>
-          <%# <%end%> 
-          <div class="post-comments-preview">
-            <h3>Comments</h3>
-            <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new" %>
-            <% @post.comments.each do |comment| %>
-              <p><%=comment.author.name %>: <%=comment.text %></p>
-            <% end %>
-          </div>
-        <%end%>
+      <div class="user-post-preview">
+          <h2>"<%= @post.title%>" by <%= @user.name %></h2>
+          <p class="post-data">
+            <span>Comments: <%= @post.comments_counter %></span>
+            <span>Likes: <%= @post.likes_counter %></span>
+          </p>
+          <p><%= @post.text %></p>
+          <%= render "likes/create" %>
+        </div>
+        <%# <% if @post.comments.size == 0 do %>
+          <%# <p>This post has no comments yet</p> %>
+        <%# <%end%> 
+        <div class="post-comments-preview">
+          <h3>Comments</h3>
+          <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new" %>
+          <% @post.comments.each do |comment| %>
+            <p><%=comment.author.name %>: <%=comment.text %></p>
+          <% end %>
+        </div>
       </div>
   </section>
 </main>
