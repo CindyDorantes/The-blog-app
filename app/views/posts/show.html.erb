@@ -10,6 +10,11 @@
           </p>
           <p><%= @post.text %></p>
           <%= render "likes/create" %>
+          <% if can? :destroy, Post %>
+            <%= form_with model: Post, url: user_post_path(@user, @post), method: :delete do |form| %>
+              <%= form.submit "Delete Post", class: "see" %>
+            <% end %>
+          <% end %>
         </div>
         <%# <% if @post.comments.size == 0 do %>
           <%# <p>This post has no comments yet</p> %>

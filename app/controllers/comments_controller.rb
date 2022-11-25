@@ -16,7 +16,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def create
     # new object from params
     user = User.find(params[:user_id])
